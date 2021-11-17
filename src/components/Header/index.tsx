@@ -1,20 +1,18 @@
-import { SignInButton } from '../SignInButton'
+import { SignInButton } from "../SignInButton";
 
-import styles from './styles.module.scss'
+import styles from "./styles.module.scss";
 
 export function Header() {
-    return (
-        <header className={styles.headerContainer}>
-            <div className={styles.headerContent}>
-                <a href="/">
-                    <span className={styles.logo}>GG News</span>
-                </a>
-                <nav>
-                    <a className={styles.active}>Home</a>
-                    <a>Posts</a>
-                </nav>
-                <SignInButton />
-            </div>
-        </header>
-    )
+  return (
+    <header className={styles.headerContainer}>
+      <div className={styles.headerContent}>
+        <img src="/images/logo.svg" alt="gg.news" />
+        <nav>
+          <a className={styles.active}>Home</a>
+          <a>Posts</a>
+        </nav>
+        <SignInButton />
+      </div>
+    </header>
+  );
 }
