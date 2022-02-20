@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "stripe": "stripe-cli/stripe listen  --forward-to localhost:3000/api/webhooks"
+    "stripe": "stripe-cli/stripe listen  --forward-to localhost:3000/api/webhooks",
+    "test": "yarn jest"
   },
   "dependencies": {
     "@prismicio/client": "^5.1.0",
