@@ -32,4 +32,14 @@ describe("ActiveLink component", () => {
 
     expect(getByText("Home")).toHaveClass("active");
   });
+
+  it("should not have active class when path and href are different", () => {
+    const { getByText } = render(
+      <ActiveLink href="/test" activeClassName="active">
+        <a>Home</a>
+      </ActiveLink>
+    );
+
+    expect(getByText("Home")).not.toHaveClass("active");
+  });
 });
