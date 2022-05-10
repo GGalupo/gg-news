@@ -14,7 +14,7 @@
     "@stripe/stripe-js": "^1.15.0",
     "axios": "^0.21.1",
     "faunadb": "^4.3.0",
-    "next": "10.2.0",
+    "next": "^12.1.6",
     "next-auth": "^3.23.3",
     "next-slicezone": "^0.1.2",
     "prismic-dom": "^2.2.6",
