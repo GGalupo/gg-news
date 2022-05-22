@@ -1,17 +1,17 @@
-import { AppProps } from 'next/app'
-import { Provider as NextAuthProvider } from 'next-auth/client'
+import { AppProps } from "next/app";
+import { SessionProvider as NextAuthProvider } from "next-auth/react";
 
-import { Header } from '../components/Header'
+import { Header } from "../components/Header";
 
-import '../styles/global.scss'
+import "../styles/global.scss";
 
-function MyApp({ Component, pageProps }: AppProps ) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <NextAuthProvider session={pageProps.session}>
+    <NextAuthProvider session={session}>
       <Header />
       <Component {...pageProps} />
     </NextAuthProvider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
