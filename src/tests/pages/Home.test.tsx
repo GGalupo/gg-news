@@ -5,9 +5,11 @@ import { stripe } from "../../services/stripe";
 import Home, { getStaticProps } from "../../pages";
 
 jest.mock("next/router");
-jest.mock("next-auth/client", () => {
+jest.mock("next-auth/react", () => {
   return {
-    useSession: () => [null, false],
+    useSession: () => {
+      return { data: null, status: "unauthenticated" };
+    },
   };
 });
 jest.mock("../../services/stripe");
