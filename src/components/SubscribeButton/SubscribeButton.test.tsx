@@ -1,18 +1,21 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { mocked } from "jest-mock";
-import { signIn, useSession } from "next-auth/client";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 import { SubscribeButton } from ".";
 
-jest.mock("next-auth/client");
+jest.mock("next-auth/react");
 jest.mock("next/router");
 
 describe("SubscribeButton component", () => {
   it("should render correctly", () => {
     const useSessionMocked = mocked(useSession);
 
-    useSessionMocked.mockReturnValueOnce([null, false]);
+    useSessionMocked.mockReturnValueOnce({
+      data: null,
+      status: "unauthenticated",
+    });
 
     render(<SubscribeButton />);
 
@@ -23,7 +26,10 @@ describe("SubscribeButton component", () => {
     const useSessionMocked = mocked(useSession);
     const signInMocked = mocked(signIn);
 
-    useSessionMocked.mockReturnValueOnce([null, false]);
+    useSessionMocked.mockReturnValueOnce({
+      data: null,
+      status: "unauthenticated",
+    });
 
     render(<SubscribeButton />);
 
@@ -38,15 +44,15 @@ describe("SubscribeButton component", () => {
     const useRouterMocked = mocked(useRouter);
     const useSessionMocked = mocked(useSession);
 
-    useSessionMocked.mockReturnValueOnce([
-      {
+    useSessionMocked.mockReturnValueOnce({
+      data: {
         user: {
           name: "John Doe",
         },
         activeSubscription: true,
-      },
-      false,
-    ]);
+      } as any,
+      status: "authenticated",
+    });
 
     const pushMock = jest.fn();
 
