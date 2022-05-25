@@ -1,6 +1,6 @@
 import { screen, render } from "@testing-library/react";
 import { mocked } from "jest-mock";
-import { useSession } from "next-auth/client";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 import { prismicClient } from "../../services/prismic";
@@ -14,7 +14,7 @@ const post = {
 };
 
 jest.mock("../../services/prismic");
-jest.mock("next-auth/client");
+jest.mock("next-auth/react");
 jest.mock("next/router");
 
 describe("Post preview page", () => {
